@@ -1,0 +1,108 @@
+This file will discuss the recipes of the mod.
+First, crafting recipes, then smelting recipes
+
+#Crafting recipes#
+
+The format will be:
+
+Result, number
+###
+XXX | # is ingredient1, X is ingredient2, A is ingredient3
+AAA
+
+##############
+
+Gold pressure plate, 1
+### | # is gold ingot
+
+Adobe, 4
+#X
+X# | # is dirt/wheat, X is wheat/dirt/wheat
+
+Time reactor, 1
+###
+XXX | # is glowing obsidian, X is lightstone block
+###
+
+Redstone lamp, 1
+ # 
+#X# | # is lightstone dust, X is redstone dust
+ # 
+
+Double step, 1
+#
+# | # is single step
+
+Bone block, 1
+##
+## | # is zombie tooth
+
+Gold ingot, 1
+###
+### | # is gold nugget
+
+Gold nugget, 6
+# | # is gold ingot
+
+Gold rail, 32
+# #
+#X# | # is gold ingot, X is stick
+# #
+
+Sandstone, 2
+##
+## | # is sand
+
+Item filter, 1
+#X#
+XXX | # is stick, X is silk
+#X#
+
+Wood alchemy station, 1
+#X#
+#A# | # is wooden logs, X is glass, A is gunpowder, B is plumbum block
+#B#
+
+Iron alchemy station, 1
+#X#
+#A# | # is iron blocks, X is glass, A is gunpowder, B is plumbum block
+#B#
+
+Plumbum block, 1
+###
+### | # is plumbum
+###
+
+
+#Furnace recipes#
+
+The format will be:
+
+Ingredient gives result
+
+##############
+
+Sandstone gives smooth sandstone
+
+Wood log gives coal
+
+
+#Alchemy recipes#
+
+The format will be:
+
+Ingredient can give result
+
+Probabilities of doing so won't be discussed, that way it is more fun.(All of them are highier than 50%)
+
+##############
+
+Plumbum can give gold nugget
+
+Slimeball can give fire essence
+
+Glowing obsidian can give obsidian
+
+Bricks can give fire bricks
+
+############## Happy crafting!

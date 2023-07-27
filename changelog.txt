@@ -1,0 +1,65 @@
+############Version v1.0############
+
+#Recipes, smelting recipes and alchemy recipes will be explained in another file#
+
++Added blue roses
++Added sandstone and smooth sandstone
++Added glowing obsidian. Generates in the nether like glowstone. Explodes when clicked with gunpowder, and transforms to obsidian
++Added bone blocks. Generates in the nether
++Added adobe
++Added time reactors. They advance time a little bit when clicked with lightstone dust and advance more when clicked with lightstone blocks
++Added gold pressure plate. Only activated with players
++Added restone lamps
++Added zombie teeth. Dropped by zombies rarely
++Added fire slimes. Spawn in the nether and drop fire essence
++Added plumbum mineral. Generates in the nether
++Added cheats
++Added gold nuggets
++Added gold rails. Their crafting recipe is more efficient than normal rails, and they do the same
++Added item names(togglable)
++Added keybinds for F1, F2, F3...
++Added creative mode. You can't take any damage and there are three togglable options for more features
++Added support for more than 5 worlds
++Added more options
++Added death messages
++Added pyramids. They can ve made out of bricks or sandstone, and spawn very rarely
++Added grass pyramids. Can be toogled in the world creaion screen
++Added fullscreen and quit buttons to the main menu
++Added window title changing when entering a world(togglable)
++Added item filter blocks. Only items can go through
++Added some splashes
++Added alchemy. There are two tiers of alchemy stations, wood and iron. Iron is better. The station can be charged(red texture on top) or not. To charge, right click with gunpowder. It will discharge randomly on use(iron has less chances of doing so). Right click with an item(discussed in recipes) and it will have a high chance of producing its output(iron is more probable) or not producing anything.
++Added fire bricks
++Added chat messages for when the dimension changes
+*The main menu title is made from a selection of blocks randomly(togglable)
+*The watermark(version text) is customizable
+*Tools now properly break blocks they should(redstone ore, workbench...)
+*More stackables
+*Tool durability is duplicated
+*Boats drop themselves on destruction
+*Some blocks drop a random amount instead of just 1 item(coal, clay, lightstone...)
+*Rails recipe now only gives 8, to incentivize the usage of gold rails(the recipe gives 32)
+*When in the nether, the loading background in bloodstone
+*Reworked options and controls menus
+*Sheep will drop wool when damaged, not when attacked
+*Sheep will eat grass or leaves to regrow wool
+*Screenshots are made only pressing one keybind(typically F2, can be changed)
+*Perspective keybind will cycle trough the 3 perspectives
+*Debug menu is now a toggle
+*Slimes now spawn
+*Golden apple gives fire and lava inmunity for 3 to 4 minutes, and arrow inmunity for 30 to 60 seconds
+*Ice now won't melt in the nether
+*Changed the output number of some recipes(doors, ladders...)
+*Fixed step drop
+*Added recipe for double step
+*Saddled pigs now drop the saddle on death
+*Made slowsand fall like sand
+*Fixed leaf decay
+*Made gold tools useful: They are less efficient in the overworld and lose durability as normal. They are much more efficient in the nether and lose durability 4 times slower. All other tools in the nether lose durability faster, and all tools except diamond ones mine slower there
+*Old ore blocks textures and models
+*Fixed grass model in the inventory
+*Chest now make a sound
+*Added a new particle
+*Default inventory key in now 'E'
+*Added world creation screen. You can select Gamemode, cheats, seed, and toggle grass pyramids
+-Deleted some unused code
