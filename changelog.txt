@@ -1,6 +1,6 @@
 ############Version v1.0############
 
-#Recipes, smelting recipes and alchemy recipes will be explained in another file#
+#Recipes, smelting recipes and alchemy recipes will be explained in another file# [Check them out](recipes.txt)
 
 +Added blue roses
 +Added sandstone and smooth sandstone
