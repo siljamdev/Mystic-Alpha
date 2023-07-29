@@ -1,3 +1,14 @@
+############Version v1.0.1############
+
+#Recipes, smelting recipes and alchemy recipes will be explained in another file#
+
++Added bone sounds for bone blocks
+*Lava now makes a pop sound
+*Fixed some errors related to furnaces
+*Fire slimes now correctly spawn
+*Gold sword now correctly deals damage
+*Changed some item names
+
 ############Version v1.0############
 
 #Recipes, smelting recipes and alchemy recipes will be explained in another file#

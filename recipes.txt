@@ -1,5 +1,5 @@
 This file will discuss the recipes of the mod.
-First, crafting recipes, then smelting recipes
+First, crafting recipes, then smelting recipes and finally alchemy recipes
 
 #Crafting recipes#
 
