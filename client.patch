@@ -522,12 +522,13 @@
  		if(this.mc.field_6320_i == null) {
  			((GuiButton)this.controlList.get(1)).enabled = false;
  		}
-@@ -91,9 +111,12 @@
+@@ -91,9 +111,13 @@
  		}
  
  		if(var1.id == 3) {
 -			this.mc.displayGuiScreen(new GuiTexturePacks(this));
 +			this.mc.shutdown();
++			System.exit(0);
  		}
  
 +		if(var1.id == 4) {
@@ -536,7 +537,7 @@
  	}
  
  	public void drawScreen(int var1, int var2, float var3) {
-@@ -111,7 +134,7 @@
+@@ -111,7 +135,7 @@
  		GL11.glScalef(var5, var5, var5);
  		this.drawCenteredString(this.fontRenderer, this.splashText, 0, -8, 16776960);
  		GL11.glPopMatrix();
@@ -545,7 +546,7 @@
  		String var6 = "Copyright Mojang Specifications. Do not distribute.";
  		this.drawString(this.fontRenderer, var6, this.width - this.fontRenderer.getStringWidth(var6) - 2, this.height - 10, 16777215);
  		super.drawScreen(var1, var2, var3);
-@@ -193,7 +216,7 @@
+@@ -193,7 +217,7 @@
  						GL11.glTranslatef((float)var7, (float)var6, var10);
  						GL11.glScalef(var11, var11, var11);
  						GL11.glRotatef(var13, 0.0F, 1.0F, 0.0F);
@@ -554,7 +555,7 @@
  						GL11.glPopMatrix();
  					}
  				}
-@@ -213,5 +236,13 @@
+@@ -213,5 +237,13 @@
  
  	static Random getRand() {
  		return rand;
@@ -602,6 +603,18 @@
  
  	protected void func_418_b_() {
  		this.hasAttacked = false;
+--- /dev/null
++++ net/minecraft/src/Log.java
+@@ -1,0 +1,9 @@
++package net.minecraft.src;
++
++
++//Debug logger
++public class Log{
++	public static void log(Object a){
++		System.out.println(a);
++	}
++}
 --- net/minecraft/src/BlockRedstoneOre.java
 +++ net/minecraft/src/BlockRedstoneOre.java
 @@ -65,7 +65,7 @@
@@ -785,14 +798,14 @@
 +			} 
 +		}
 +		
-+		for(var7 = 0; var7 < 20; ++var7) {
++		for(var7 = 0; var7 < 28; ++var7) {
 +			var8 = var4 + this.field_4170_h.nextInt(16) + 8;
 +			var9 = this.field_4170_h.nextInt(120) + 8;
 +			var10 = var5 + this.field_4170_h.nextInt(16) + 8;
 +			(new WorldGenMinableHell(Block.orePlumbum.blockID, 16)).generate(this.field_4164_n, this.field_4170_h, var8, var9, var10);
 +		}	
 +		
-+		for(var7 = 0; var7 < 2; ++var7) {
++		for(var7 = 0; var7 < 6; ++var7) {
 +			var8 = var4 + this.field_4170_h.nextInt(16) + 8;
 +			var9 = this.field_4170_h.nextInt(64);
 +			var10 = var5 + this.field_4170_h.nextInt(16) + 8;
@@ -4390,7 +4403,7 @@
  	private int field_6300_ab = 0;
 +	public Translation translator = Translation.english;
 +	public static String name = "Mystic Alpha";
-+	public static String version = "v1.0.1";
++	public static String version = "v1.0.2";
  
  	public Minecraft(Component var1, Canvas var2, MinecraftApplet var3, int var4, int var5, boolean var6) {
  		this.field_9236_T = var4;
@@ -7085,7 +7098,7 @@
  	public static final Block field_9267_N = null;
  	public static final Block field_9266_O = null;
  	public static final Block field_9265_P = null;
-@@ -54,63 +55,80 @@
+@@ -54,63 +55,81 @@
  	public static final Block field_9256_Y = null;
  	public static final Block field_9255_Z = null;
  	public static final Block field_9269_aa = null;
@@ -7219,10 +7232,11 @@
 +	public static final Block alchemyStationWood = (new BlockAlchemy(106, 122, false)).setHardness(3.5F).setStepSound(soundWoodFootstep).setKey("alchemyWood");
 +	public static final Block alchemyStationIron = (new BlockAlchemy(107, 124, true)).setHardness(5.0F).setStepSound(soundMetalFootstep).setKey("alchemyIron");
 +	public static final Block brickFire = (new Block(108, 117, Material.rock)).setHardness(3.0F).setResistance(10.0F).setStepSound(soundStoneFootstep).setKey("brickFire");
++	public static final Block concrete = (new BlockFastPath(109, 147)).setHardness(1.0F).setStepSound(soundStoneFootstep).setKey("concrete");
  	public int blockIndexInTexture;
  	public final int blockID;
  	protected float blockHardness;
-@@ -125,6 +143,7 @@
+@@ -125,6 +144,7 @@
  	public float field_357_bm;
  	public final Material blockMaterial;
  	public float slipperiness;
@@ -7230,7 +7244,7 @@
  
  	protected Block(int var1, Material var2) {
  		this.stepSound = soundPowderFootstep;
-@@ -153,6 +172,11 @@
+@@ -153,6 +173,11 @@
  		this.stepSound = var1;
  		return this;
  	}
@@ -7242,7 +7256,7 @@
  
  	protected Block setLightOpacity(int var1) {
  		lightOpacity[this.blockID] = var1;
-@@ -193,6 +217,13 @@
+@@ -193,6 +218,13 @@
  	protected void setTickOnLoad(boolean var1) {
  		tickOnLoad[this.blockID] = var1;
  	}
@@ -7256,7 +7270,7 @@
  
  	public void setBlockBounds(float var1, float var2, float var3, float var4, float var5, float var6) {
  		this.field_370_bf = (double)var1;
-@@ -282,7 +313,7 @@
+@@ -282,7 +314,7 @@
  	}
  
  	public float func_225_a(EntityPlayer var1) {
@@ -7265,7 +7279,7 @@
  	}
  
  	public void dropBlockAsItem(World var1, int var2, int var3, int var4, int var5) {
-@@ -311,6 +342,28 @@
+@@ -311,6 +343,28 @@
  		}
  	}
  
@@ -7294,7 +7308,7 @@
  	public float func_227_a(Entity var1) {
  		return this.blockResistance / 5.0F;
  	}
-@@ -473,6 +526,10 @@
+@@ -473,6 +527,10 @@
  
  	public void harvestBlock(World var1, int var2, int var3, int var4, int var5) {
  		this.dropBlockAsItem(var1, var2, var3, var4, var5);
@@ -8773,7 +8787,7 @@
  					sndSystem.setVolume("BgMusic", this.options.musicVolume);
  					sndSystem.play("BgMusic");
  				}
-@@ -103,92 +162,198 @@
+@@ -103,92 +162,197 @@
  		}
  	}
  
@@ -8901,7 +8915,6 @@
 +	//playsound args: soundName, x, y, z, volume, pitch
 +	public void func_336_b(String paramString, float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5) {
 +		if(loaded && this.options.soundVolume != 0.0F && sndSystem != null) {
-+			System.out.println("[Debug info] " + paramString);
 +			SoundPoolEntry localal = this.soundPoolSounds.getRandomSoundFromSoundPool(paramString);
 +			if(localal != null && paramFloat4 > 0.0F) {
 +				this.field_587_e = (this.field_587_e + 1) % 256;
@@ -9048,6 +9061,45 @@
 +        return result;
 +    }
  }
+--- /dev/null
++++ net/minecraft/src/BlockFastPath.java
+@@ -1,0 +1,36 @@
++package net.minecraft.src;
++
++public class BlockFastPath extends Block {
++	public BlockFastPath(int var1, int var2) {
++		super(var1, var2, Material.rock);
++	}
++	
++	public AxisAlignedBB getCollisionBoundingBoxFromPool(World var1, int var2, int var3, int var4) {
++		float var5 = 1.0F / 16.0F;
++		return AxisAlignedBB.getBoundingBoxFromPool((double)var2, (double)var3, (double)var4, (double)(var2 + 1), (double)((float)(var3 + 1) - var5), (double)(var4 + 1));
++	}
++
++	public void onEntityCollidedWithBlock(World var1, int var2, int var3, int var4, Entity var5) {
++		var5.motionX *= 1.2D;
++		var5.motionZ *= 1.2D;
++	}
++	
++	public int getBlockTexture(IBlockAccess var1, int var2, int var3, int var4, int var5) {
++		if(var5 == 1) { //top
++			return this.blockIndexInTexture - 16;
++		} else if (var5 == 0){ //Bottom
++			return this.blockIndexInTexture - 16;
++		} else {
++			return this.blockIndexInTexture;
++		}
++	}
++	public int getBlockTextureFromSide(int var1) {
++		if(var1 == 1){ //Top
++			return this.blockIndexInTexture - 16;
++		} else if (var1 == 0){ //Bottom
++			return this.blockIndexInTexture - 16;
++		} else {
++			return this.blockIndexInTexture;
++		}
++	}
++}
 --- net/minecraft/src/GuiGameOver.java
 +++ net/minecraft/src/GuiGameOver.java
 @@ -38,7 +38,7 @@
@@ -9767,7 +9819,7 @@
 +	}
 +	
 +	private void checkWatermark(){
-+		if (watermark.equals("Bloodcraft v0.1") || watermark.equals("Bloodcraft v0.2") || watermark.equals("Mystic Alpha v0.4") || watermark.equals("Mystic Alpha v1.0")){
++		if (watermark.equals("Bloodcraft v0.1") || watermark.equals("Bloodcraft v0.2") || watermark.equals("Mystic Alpha v0.4") || watermark.equals("Mystic Alpha v1.0") || watermark.equals("Mystic Alpha v1.1") || watermark.equals("Mystic Alpha v1.0.1")){
 +			watermark = Minecraft.getName();
 +		}
 +	}

@@ -1,4 +1,4 @@
-This is a mod for alpha 1.2.6
+This is a mod for alpha 1.2.6. There is patches for RetroMCP
 
 The mod file will be in releases
 

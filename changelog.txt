@@ -1,3 +1,12 @@
+############Version v1.0.2############
+October 2025
+
+#Recipes, smelting recipes and alchemy recipes will be explained in another file#
+
+-Removed debug info that clogged console
+*Fixed exit bug
+*Fixed watermark bug
+
 ############Version v1.0.1############
 
 #Recipes, smelting recipes and alchemy recipes will be explained in another file#
