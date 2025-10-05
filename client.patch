@@ -4475,12 +4475,34 @@
  						Display.update();
  					}
  
-@@ -543,15 +563,16 @@
+@@ -543,15 +563,38 @@
  			}
  
  		} finally {
-+			System.out.println("Exiting");
-+			System.exit(0);
++			try {
++				try {
++					if(this.downloadResourcesThread != null) {
++						this.downloadResourcesThread.closeMinecraft();
++					}
++				} catch (Exception var9) {
++				}
++	
++				System.out.println("Stopping!");
++	
++				try {
++					GLAllocation.deleteTexturesAndDisplayLists();
++				} catch (Throwable var7) {
++				}
++	
++				this.sndManager.closeMinecraft();
++				Mouse.destroy();
++				Keyboard.destroy();
++			} finally {
++				Display.destroy();
++				System.exit(0);
++			}
++	
++			System.gc();
  		}
  	}
  
@@ -4496,7 +4518,7 @@
  
  				this.field_6291_J = true;
  			}
-@@ -906,7 +927,7 @@
+@@ -906,7 +949,7 @@
  											this.thePlayer.func_460_a(Keyboard.getEventKey(), Keyboard.getEventKeyState());
  										} while(!Keyboard.getEventKeyState());
  
@@ -4505,7 +4527,7 @@
  											this.toggleFullscreen();
  										} else {
  											if(this.currentScreen != null) {
-@@ -916,17 +937,23 @@
+@@ -916,17 +959,23 @@
  													this.func_6252_g();
  												}
  
@@ -4532,7 +4554,7 @@
  
  												if(Keyboard.getEventKey() == this.gameSettings.keyBindDrop.keyCode) {
  													this.thePlayer.dropPlayerItemWithRandomChoice(this.thePlayer.inventory.decrStackSize(this.thePlayer.inventory.currentItem, 1), false);
-@@ -1038,23 +1065,32 @@
+@@ -1038,23 +1087,32 @@
  		return this.theWorld != null && this.theWorld.multiplayerWorld;
  	}
  
@@ -4568,7 +4590,7 @@
  		}
  
  		this.theWorld.setEntityDead(this.thePlayer);
-@@ -1108,6 +1144,7 @@
+@@ -1108,6 +1166,7 @@
  			if(!this.isMultiplayerWorld()) {
  				if(var3 == null) {
  					this.thePlayer = (EntityPlayerSP)var1.func_4085_a(EntityPlayerSP.class);
@@ -4576,7 +4598,7 @@
  				}
  			} else if(this.thePlayer != null) {
  				this.thePlayer.preparePlayerToSpawn();
-@@ -1123,6 +1160,7 @@
+@@ -1123,6 +1182,7 @@
  			System.out.println("Player is now " + this.thePlayer);
  			if(this.thePlayer == null) {
  				this.thePlayer = (EntityPlayerSP)this.field_6327_b.func_4087_b(var1);
@@ -4584,7 +4606,7 @@
  				this.thePlayer.preparePlayerToSpawn();
  				this.field_6327_b.flipPlayer(this.thePlayer);
  			}
-@@ -1152,6 +1190,23 @@
+@@ -1152,6 +1212,23 @@
  		System.gc();
  		this.field_6287_N = 0L;
  	}
@@ -4608,7 +4630,7 @@
  
  	private void func_6255_d(String var1) {
  		this.loadingScreen.func_596_a(var1);
-@@ -1231,6 +1286,7 @@
+@@ -1231,6 +1308,7 @@
  		}
  
  		this.thePlayer = (EntityPlayerSP)this.field_6327_b.func_4087_b(this.theWorld);
@@ -4616,7 +4638,7 @@
  		this.thePlayer.preparePlayerToSpawn();
  		this.field_6327_b.flipPlayer(this.thePlayer);
  		this.theWorld.func_608_a(this.thePlayer);
-@@ -1279,6 +1335,7 @@
+@@ -1279,6 +1357,7 @@
  	}
  
  	public static void main(String[] var0) {
@@ -4624,7 +4646,7 @@
  		String var1 = "Player" + System.currentTimeMillis() % 1000L;
  		if(var0.length > 0) {
  			var1 = var0[0];
-@@ -1290,7 +1347,6 @@
+@@ -1290,7 +1369,6 @@
  		}
  
  		var1 = "Player" + System.currentTimeMillis() % 1000L;
