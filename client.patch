@@ -522,13 +522,12 @@
  		if(this.mc.field_6320_i == null) {
  			((GuiButton)this.controlList.get(1)).enabled = false;
  		}
-@@ -91,9 +111,13 @@
+@@ -91,9 +111,12 @@
  		}
  
  		if(var1.id == 3) {
 -			this.mc.displayGuiScreen(new GuiTexturePacks(this));
 +			this.mc.shutdown();
-+			System.exit(0);
  		}
  
 +		if(var1.id == 4) {
@@ -537,7 +536,7 @@
  	}
  
  	public void drawScreen(int var1, int var2, float var3) {
-@@ -111,7 +135,7 @@
+@@ -111,7 +134,7 @@
  		GL11.glScalef(var5, var5, var5);
  		this.drawCenteredString(this.fontRenderer, this.splashText, 0, -8, 16776960);
  		GL11.glPopMatrix();
@@ -546,7 +545,7 @@
  		String var6 = "Copyright Mojang Specifications. Do not distribute.";
  		this.drawString(this.fontRenderer, var6, this.width - this.fontRenderer.getStringWidth(var6) - 2, this.height - 10, 16777215);
  		super.drawScreen(var1, var2, var3);
-@@ -193,7 +217,7 @@
+@@ -193,7 +216,7 @@
  						GL11.glTranslatef((float)var7, (float)var6, var10);
  						GL11.glScalef(var11, var11, var11);
  						GL11.glRotatef(var13, 0.0F, 1.0F, 0.0F);
@@ -555,7 +554,7 @@
  						GL11.glPopMatrix();
  					}
  				}
-@@ -213,5 +237,13 @@
+@@ -213,5 +236,13 @@
  
  	static Random getRand() {
  		return rand;
@@ -4476,7 +4475,13 @@
  						Display.update();
  					}
  
-@@ -547,11 +567,10 @@
+@@ -543,15 +563,16 @@
+ 			}
+ 
+ 		} finally {
++			System.out.println("Exiting");
++			System.exit(0);
+ 		}
  	}
  
  	private void func_6248_s() {
@@ -4491,7 +4496,7 @@
  
  				this.field_6291_J = true;
  			}
-@@ -906,7 +925,7 @@
+@@ -906,7 +927,7 @@
  											this.thePlayer.func_460_a(Keyboard.getEventKey(), Keyboard.getEventKeyState());
  										} while(!Keyboard.getEventKeyState());
  
@@ -4500,7 +4505,7 @@
  											this.toggleFullscreen();
  										} else {
  											if(this.currentScreen != null) {
-@@ -916,17 +935,23 @@
+@@ -916,17 +937,23 @@
  													this.func_6252_g();
  												}
  
@@ -4527,7 +4532,7 @@
  
  												if(Keyboard.getEventKey() == this.gameSettings.keyBindDrop.keyCode) {
  													this.thePlayer.dropPlayerItemWithRandomChoice(this.thePlayer.inventory.decrStackSize(this.thePlayer.inventory.currentItem, 1), false);
-@@ -1038,23 +1063,32 @@
+@@ -1038,23 +1065,32 @@
  		return this.theWorld != null && this.theWorld.multiplayerWorld;
  	}
  
@@ -4563,7 +4568,7 @@
  		}
  
  		this.theWorld.setEntityDead(this.thePlayer);
-@@ -1108,6 +1142,7 @@
+@@ -1108,6 +1144,7 @@
  			if(!this.isMultiplayerWorld()) {
  				if(var3 == null) {
  					this.thePlayer = (EntityPlayerSP)var1.func_4085_a(EntityPlayerSP.class);
@@ -4571,7 +4576,7 @@
  				}
  			} else if(this.thePlayer != null) {
  				this.thePlayer.preparePlayerToSpawn();
-@@ -1123,6 +1158,7 @@
+@@ -1123,6 +1160,7 @@
  			System.out.println("Player is now " + this.thePlayer);
  			if(this.thePlayer == null) {
  				this.thePlayer = (EntityPlayerSP)this.field_6327_b.func_4087_b(var1);
@@ -4579,7 +4584,7 @@
  				this.thePlayer.preparePlayerToSpawn();
  				this.field_6327_b.flipPlayer(this.thePlayer);
  			}
-@@ -1152,6 +1188,23 @@
+@@ -1152,6 +1190,23 @@
  		System.gc();
  		this.field_6287_N = 0L;
  	}
@@ -4603,7 +4608,7 @@
  
  	private void func_6255_d(String var1) {
  		this.loadingScreen.func_596_a(var1);
-@@ -1231,6 +1284,7 @@
+@@ -1231,6 +1286,7 @@
  		}
  
  		this.thePlayer = (EntityPlayerSP)this.field_6327_b.func_4087_b(this.theWorld);
@@ -4611,7 +4616,7 @@
  		this.thePlayer.preparePlayerToSpawn();
  		this.field_6327_b.flipPlayer(this.thePlayer);
  		this.theWorld.func_608_a(this.thePlayer);
-@@ -1279,6 +1333,7 @@
+@@ -1279,6 +1335,7 @@
  	}
  
  	public static void main(String[] var0) {
@@ -4619,7 +4624,7 @@
  		String var1 = "Player" + System.currentTimeMillis() % 1000L;
  		if(var0.length > 0) {
  			var1 = var0[0];
-@@ -1290,7 +1345,6 @@
+@@ -1290,7 +1347,6 @@
  		}
  
  		var1 = "Player" + System.currentTimeMillis() % 1000L;
